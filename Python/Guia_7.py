@@ -448,7 +448,7 @@ cuenta_regresiva_2(int(evaluar))
 
 
 def viaje_en_el_tiempo_2(añoi: int, añof: int):
-    for i in range(añoi, añof-110, -1):
+    for i in range(añoi, añof-1, -1):
         print("Viajo un año al pasado, estamos en el año: ", i)
 
 
