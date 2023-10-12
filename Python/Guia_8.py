@@ -144,10 +144,98 @@ print(esCapicua(12345))  # Debería imprimir False
 
 
 # Problema 7 -------------------------------------
+def tieneMinuscula(contra:str) -> bool:
+    valor:bool = False
+    for i in contra:
+        if (i >= 'a' and i <= 'z'):
+            return True
+    return valor 
+#print(tieneMinuscula("tiene"))
+
+def tieneMayuscula(contra:str) -> bool:
+    valor:bool = False
+    for i in contra:
+        if (i >= 'A' and i <= 'Z'):
+            return True
+    return valor 
+#print(tieneMayuscula("tieNe"))
+
+def tieneNumeros(contra:str)->bool:
+    valor: bool = False
+    for i in contra:
+        if (i >= '0' and i <= '9'):
+            return True
+    return valor 
+#print(tieneNumeros("tieN9e"))
+
    
-# def fortaleza(contraseña:str)->str:
-#    if len(contraseña) > 8:
-#       if  
+def fortaleza(contraseña:str)->str:
+    if tieneNumeros(contraseña) and tieneMayuscula(contraseña) and tieneMinuscula(contraseña):
+        return "VERDE"
+    elif len(contraseña)<5:
+        return "ROJA"
+    else:
+        return "AMARILLA"
+           
+print(fortaleza("horajh"))
+
+# Problema 8 -------------------------------------
+
+# saldoActual([("I",2000),("R",20),("R",1000),("I",300)]) -> int: reuslt = 1280
+# lista[x][y]
+def saldoActual(lista:[(str,int)])->int:
+        ingresos: int = 0
+        retiro: int = 0        
+        for i in lista:
+            if (i[0] == "I") :
+                 ingresos += i[1]
+            elif (i[0] == "R"):
+                 retiro += i[1]
+        return ingresos-retiro
+print(saldoActual([("I",2000),("R",20),("R",1000),("I",300)]))  
+                     
+# Problema 9 -------------------------------------
+
+####         
+# def vocalesDistintas(palabra:str)->int: # me dice cuantas vocales distintas hay
+#    contador:int = 0
+#    for i in range(len(palabra)-1):
+#        if palabra[i] != palabra[i+1]:
+#           contador += 1    
+#    return contador                    
+#print(vocalesDistintas("abc"))                 
+####
+
+def vocales(palabra:str)->str: # De una palabra cualquiera me devuelve solo las vocales
+       listaVocales:str = []
+       for i in palabra:
+           if i in "aeiouAEIOU":
+               listaVocales.append(i)
+       return listaVocales
+#print(vocales("aetlpioo"))                        
+
+def eliminarRepetidos(vocales:str)->str: # De un String de solo vocales me devuelve un String de vocales no repetidas 
+    nueva:str = []
+    for i in vocales:
+        if i in nueva:
+            None           
+        #   print("esta vocal esta repetida",i)
+        else:
+           nueva.append(i)     
+    return nueva
+     
+#print("eliminarRepetidos: ",eliminarRepetidos("nuevaa"))            
+
+def tresVocalesDistintas(palabra:str)->bool:
+    for i in palabra:
+        if len(eliminarRepetidos(vocales(palabra))) >= 3 :
+           return True
+    return False
+print(tresVocalesDistintas("palebre")) 
+    
+# ----------------------------------- Ejercicio 2 --------------------------
+#def paresPorCeros(lista:[int])->None:
+#    for i in range(0,len(lista),2):
 
 
 
